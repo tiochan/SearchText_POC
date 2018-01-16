@@ -1,0 +1,25 @@
+elow was copied from a Sun Forum -- if having problems compiling on Solaris 10 try this:
+
+Re: where is ctid_t defined? (Solaris 10)
+Author: Juergen.Keil         Nov 17, 2004 10:37 AM (reply 1 of 10)     
+ctid_t is defined in /usr/include/sys/types.h ("typedef id_t ctid_t;").
+
+I guess what has happend is that you're using a gcc compiler that
+was build on Solaris 9 (or some other Solaris release older than
+Solaris 10 b69), and this gcc release has a set of "fixed" gcc specific
+headers that don't match your s10b69 system headers any more.
+
+The fix is to build a fresh set of gcc "fixed" headers:
+
+# cd /opt/sfw/gcc-3/lib/gcc-lib/i386-pc-solaris2.9/3.3.2/install-tools/ 
+
+# cat > mkheaders.conf
+SHELL=/bin/sh
+SYSTEM_HEADER_DIR="/usr/include"
+OTHER_FIXINCLUDES_DIRS=""
+FIXPROTO_DEFINES="-D_XOPEN_SOURCE"
+STMP_FIXPROTO="stmp-fixproto"
+STMP_FIXINC="stmp-fixinc"
+^D
+
+# ./mkheaders
