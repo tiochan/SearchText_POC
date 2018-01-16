@@ -1,0 +1,22 @@
+I have compiled php 4.2.3, on my solaris 9, sparc, it works, i have gcc 3.2.2, from sunfreeware.org, i have compiled with 
+
+./configure --prefix=/opt/php --with-apxs=/opt/apache/bin/apxs --with-pgsql=/opt/pgsql --with-imap=/usr/src/soft/imap-2002b --with-ldap --with-imap-ssl=/usr/local/ssl
+
+It compiles, but when i try to run it says something like:
+
+bash-2.05# /opt/apache/bin/apachectl start
+Syntax error on line 205 of /opt/apache/conf/httpd.conf:
+Cannot load /opt/apache/libexec/libphp4.so into server: ld.so.1: /opt/apache/bin/httpd: fatal: relocation error: file /opt/apache/libexec/libphp4.so: symbol ldap_start_tls_s: referenced symbol not found
+/opt/apache/bin/apachectl start: httpd could not be started
+
+This means that the ldap librarys that came with solaris, are not very fine, you should use from openldap.org packages...
+
+it is using this library:
+
+bash-2.05# ldd /opt/apache/libexec/libphp4.so
+    ...
+    libldap.so.5 =>  /usr/lib/libldap.so.5
+
+his one is from solaris installation.
+
+(sorry about my english)

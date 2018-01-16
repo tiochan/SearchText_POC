@@ -1,0 +1,27 @@
+PHP 4.1.1 / Apache 1.32 Buile Issues (Solaris 2.8)
+
+Apache build options:
+./configure --prefix=/usr/local/etc/apache --enable-module=rewrite --enable-shared=rewrite
+
+PHP build options:
+./configure --with-mysql=/usr/local/etc/mysql --with-apxs=/usr/local/etc/apache/bin/apxs
+
+Both Apache and PHP compiled without errors and installed cleanly.
+
+The Error when starting Apache:
+Syntax error on line 208 of /usr/local/etc/apache/conf/httpd.conf:
+Cannot load /usr/local/etc/apache/libexec/libphp4.so into server:
+ld.so.1: /usr/local/etc/apache/bin/httpd: fatal: relocation error: file /usr/local/etc/apache/libexec/libphp4.so: symbol dn_skipname: referenced symbol not found ./apachectl start: httpd could not be started
+
+Line 208 in the httpd.conf file is: 
+LoadModule php4_module        libexec/libphp4.so
+
+The solution:
+For some reason, even though LD_LIBRARY_PATH was being set properly,
+it wasn't being read fully.  You will need to create a runtime
+linking environment by doing this:
+
+#crle -c /var/ld/ld.config -l /usr/lib:/usr/local/lib:/usr/local/etc/mysql/lib
+
+Shane Kinsch
+NetraCorp LLC / SecurNET Consulting

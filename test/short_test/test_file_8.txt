@@ -1,0 +1,15 @@
+n Solaris, if upon starting Apache you get an error like this:
+
+Syntax error on line 33 of /usr/local/apache/conf/httpd.conf:
+Cannot load /usr/local/apache/libexec/libphp4.so into server: ld.so.1: /usr/loca
+l/apache/bin/httpd: fatal: libmysqlclient.so.10: open failed: No such file or directory
+./apachectl start: httpd could not be started
+
+..try inserting the following lines into the configuration section of your apachectl startup shell script:
+
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/mysql/lib/mysql
+export LD_LIBRARY_PATH
+
+Change the /usr/local/mysql/ prefix to where ever your MySQL installation is. Make sure to add on the /lib/mysql extension to your own path though.
+
+Do your normal "apachectl start" command to start Apache and voila, no more error. Apachectl can be found in the bin directory of your Apache installation.
