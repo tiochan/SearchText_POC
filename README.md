@@ -81,3 +81,21 @@ Get it on Github: https://github.com/tiochan/SearchText_POC:
 
 		git clone https://github.com/tiochan/SearchText_POC
 
+
+Try it with more than 11MB of data, resulting in less than 1 second:
+
+		php search_text_engine.php ../test/textBooks/
+		12 files read in directory ../test/textBooks/
+		search> How are you dealing with it
+		../test/textBooks//anna_karenina : 50%
+		../test/textBooks//dlleg10.txt : 36.7%
+		../test/textBooks//don_juan : 36.7%
+		../test/textBooks//civildis.txt : 36.7%
+		../test/textBooks//alcott-little-261.txt : 36.7%
+		../test/textBooks//2city10.txt : 36.7%
+		../test/textBooks//bible10.txt : 33.3%
+		../test/textBooks//2000010.txt : 33.3%
+		../test/textBooks//sleep10.txt : 20%
+		../test/textBooks//tturn10.txt : 16.7%
+		search> :quit
+		Bye!
