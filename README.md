@@ -1,4 +1,3 @@
-# SearchText_POC
 --------------------------------------------------
                 Introduction
 --------------------------------------------------
@@ -19,6 +18,11 @@ This match % means:
 - 100%: the file contains all the words to search
 - 0% means that the file does not contains any word (this case will not be listed).
 - Between 100% and 0%, the match result is based on the hits.
+
+
+To test the application, just execute:
+
+		php search_text_engine.php <path_to_files>
 
 
 --------------------------------------------------
@@ -53,20 +57,27 @@ Using the positions of a word across each file is easy to determine the hit %.
                Unitary tests
 --------------------------------------------------
 
-The unitary tests are implemented with PHPUnit.
+Unitary tests are implemented with PHPUnit.
 
 In order to install this software, follow those steps:
 
-             wget https://phar.phpunit.de/phpunit-6.5.phar
-             chmod +x phpunit-6.5.phar
-             sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
-             phpunit --version
-             sudo apt-get install php
-             phpunit --version
+		wget https://phar.phpunit.de/phpunit-6.5.phar
+		chmod +x phpunit-6.5.phar
+		sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
+		phpunit --version
+		sudo apt-get install php
+		phpunit --version
 
 To test the application, just execute:
 
-		php search_text_engine.php <path_to_files>
+		phpunit searchTest.php
 
 
+--------------------------------------------------
+         Github! Find newer versions
+--------------------------------------------------
+
+Get it on Github: https://github.com/tiochan/SearchText_POC:
+
+		git clone https://github.com/tiochan/SearchText_POC
 
