@@ -1,0 +1,15 @@
+Here is my successful installation of PHP 5.5.30 on Solaris 10 6/06 u2 SPARC:
+
+set LD_LIBRARY_PATH, LD, CC and PATH variables
+
+root# LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/openwin/lib:/export/home/db/oracle/lib:/export/home/db/oracle/lib32
+root# CC=gcc
+root# LD=/usr/ccs/bin/ld
+root# PATH=$PATH:/usr/ucb:/usr/local/bin/:/usr/sfw/bin/:/opt/csw/bin/:/usr/ccs/bin/
+root# export LD_LIBRARY_PATH CC PATH LD
+
+./configure  --with-oci8=/export/home/db/oracle --with-apxs2=/usr/apache2/bin/apxs --with-config-file-path=/etc/apache2 --with-iodbc=/usr/local --enable-ftp --with-freetype-dir=/usr/local/freetype/ --with-sybase-ct=/usr/local/freetds/ --enable-opcache=no --without-pear
+
+make
+make test
+make install

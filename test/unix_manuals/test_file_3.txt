@@ -1,0 +1,1 @@
+Note that you also need GNU sed or you'll have some errors lile "Output line too long."

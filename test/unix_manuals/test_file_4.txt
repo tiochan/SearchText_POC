@@ -1,0 +1,1 @@
+Compiled Ok on Solaris 9 after the addition of Bison Flex automake and autoconf, adding /usr/local/bin to the path and linking /usr/ccs/bin/ar to /usr/local/bin/ar.
