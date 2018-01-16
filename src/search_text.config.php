@@ -30,7 +30,7 @@
 
 
 // Constants
-define("DEBUG", true);                          // Set it to false in production environments.
+define("DEBUG", false);                          // Set it to false in production environments.
 
 define("WORD_SEPARATOR"," ");                   // Which is the word separator used?
 define("SEARCH_IS_KEY_INSENSITIVE", false);     // [true|false] If false, the search is made key-sensitive. If true, all
