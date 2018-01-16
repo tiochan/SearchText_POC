@@ -57,13 +57,16 @@ The unitary tests are implemented with PHPUnit.
 
 In order to install this software, follow those steps:
 
-$ wget https://phar.phpunit.de/phpunit-6.5.phar
-$ chmod +x phpunit-6.5.phar
-$ sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
-$ phpunit --version
-$ sudo apt-get install php
-$ phpunit --version
+             wget https://phar.phpunit.de/phpunit-6.5.phar
+             chmod +x phpunit-6.5.phar
+             sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
+             phpunit --version
+             sudo apt-get install php
+             phpunit --version
 
-To test the application, just execute
+To test the application, just execute:
+
+		php search_text_engine.php <path_to_files>
+
 
 
