@@ -286,8 +286,6 @@ class searchEngine {
 
 		$hitIncrement= 100/$wordCount;                  // Amount of increment for each word found
 
-		print_r($this->fileMap);
-		print_r($hitsArray);
 		foreach($this->fileMap as $fileID => $fileName) {
 
 			debugStartProcess("get string depth for $fileID");
