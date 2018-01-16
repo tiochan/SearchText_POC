@@ -10,19 +10,22 @@ but are complex to manage. Those solutions allow algs to reach the needed perfor
 suitable the text search. In the current exercise, I will use a simple data structure and a
 simple way to determine the matching process, facing a coding example.
 
-The simple usage is to instance the class passing as argument the directory where to find for.
+The class is simple to use. Just instance it passing as argument the directory where to find for.
 Then you can call the searchText function which will return the list of files matching the
 text that you passed as parameter with a match percentage.
 
 This match % means:
 - 100%: the file contains all the words to search
 - 0% means that the file does not contains any word (this case will not be listed).
-- Between 100% and 0%, the match result is based on the hits.
+- Between 100% and 0%, the match result is based on the hits, and the selected engine at config
+  file (read next).
 
 
 To test the application, just execute:
 
 		php search_text_engine.php <path_to_files>
+
+In this package you will find some directories at the test directory. Try yourself.
 
 
 --------------------------------------------------
@@ -40,6 +43,12 @@ on the configuration parameter SEARCH_IS_KEY_INSENSITIVE. For each word:
 - The third level contains all the positions into the file where the word has been found.
 
 Using the positions of a word across each file is easy to determine the hit %.
+
+The search class can deal with two configurations (defined at config file):
+- simple, just say how many words are find on each file. The order is not important. In this case,
+  the in-memory text map does not contain the position of each word, due that is not necessary.
+- strict, the algorithm takes in consideration if the words are found in order or not. Is more
+  complex than the "simple" configuration.
 
 
 --------------------------------------------------
